@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to Hospital Management System</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event);">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Hardcoded credentials
+            const validUsername = 'admin';  // Change as needed
+            const validPassword = '12345';  // Change as needed
+
+            // Get input values
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the credentials match
+            if (username === validUsername && password === validPassword) {
+                alert('Login successful!');
+                // Redirect to the desired page after successful login
+                window.location.href = 'home.html'; // Change to the page you want to redirect to
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
